@@ -5,11 +5,7 @@
   width: 300px;
 }
 
-.title {
-  color: #99db16;
-}
-
-.feedbackContainer {
+.feedback_container {
   height: 100vh;
   display: flex;
   justify-content: center;
