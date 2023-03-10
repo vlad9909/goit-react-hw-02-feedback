@@ -6,25 +6,34 @@ class Feedback extends React.Component {
     good: 0,
     neutral: 0,
     bad: 0,
-    total: 0,
   };
 
   goodPlus = () => {
-    this.setState(prevState => ({
-      good: prevState.good + 1,
+    this.setState(({ good }) => ({
+      good: good + 1,
     }));
   };
 
   neutralPlus = () => {
-    this.setState(prevState => ({
-      neutral: prevState.neutral + 1,
+    this.setState(({ neutral }) => ({
+      neutral: neutral + 1,
     }));
   };
 
   badPlus = () => {
-    this.setState(prevState => ({
-      bad: prevState.bad + 1,
+    this.setState(({ bad }) => ({
+      bad: bad + 1,
     }));
+  };
+
+  countTotalFeedback = () => {
+    const { good, neutral, bad } = this.state;
+    return good + neutral + bad;
+  };
+
+  countPositiveFeedbackPercentage = () => {
+    const { good } = this.state;
+    return `${Math.round((good / this.countTotalFeedback()) * 100)}%`;
   };
 
   render() {
@@ -41,7 +50,10 @@ class Feedback extends React.Component {
           <span className={css.grade}>Good: {this.state.good}</span>
           <span className={css.grade}>Neutral: {this.state.neutral}</span>
           <span className={css.grade}>Bad: {this.state.bad}</span>
-          <span>Total: {this.state.total}</span>
+          <span className={css.grade}>Total: {this.countTotalFeedback()}</span>
+          <span className={css.grade}>
+            Positive feedback: {this.countPositiveFeedbackPercentage()}
+          </span>
         </div>
       </div>
     );

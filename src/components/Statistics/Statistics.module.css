@@ -1,0 +1,12 @@
+.grade {
+  margin-bottom: 10px;
+}
+
+.title {
+  color: #99db16;
+}
+
+.stats_conteiner {
+  display: flex;
+  flex-direction: column;
+}
