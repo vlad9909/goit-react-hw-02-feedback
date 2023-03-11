@@ -1,5 +1,7 @@
 import React from 'react';
 import css from './Statistics.module.css';
+import PropTypes from 'prop-types';
+
 const Statistics = ({ good, neutral, bad, total, goodPersentage }) => (
   <div className={css.stats_conteiner}>
     <h3 className={css.title}>Statistic</h3>
@@ -12,3 +14,11 @@ const Statistics = ({ good, neutral, bad, total, goodPersentage }) => (
 );
 
 export default Statistics;
+
+Statistics.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  goodPersentage: PropTypes.number.isRequired,
+};

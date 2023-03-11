@@ -1,5 +1,6 @@
 import React from 'react';
 import css from './FeedbackOptions.module.css';
+import PropTypes from 'prop-types';
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
@@ -15,8 +16,7 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
 
 export default FeedbackOptions;
 
-/* <div className={css.btn_container}>
-  <button onClick={this.goodPlus}>Good</button>
-  <button onClick={this.neutralPlus}>Neutral</button>
-  <button onClick={this.badPlus}>Bad</button>
-</div>; */
+FeedbackOptions.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
+};
